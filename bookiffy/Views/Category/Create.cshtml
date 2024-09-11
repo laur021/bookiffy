@@ -1,0 +1,53 @@
+@model Category
+@* Di na to ginagamit *@
+<form method="post">
+  <fieldset>
+    <div class="row m-0 p-0">
+      <legend class="mb-0 border-bottom">Create Category</legend>
+    </div>
+
+    <div class="col-12 mt-4">
+      @* asp-validation-summary="ModelOnly" - it will not display the property related validations like required, range etc *@
+      @* asp-validation-summary="All" - display all property related validations*@
+      <div asp-validation-summary="None" class="text-danger"></div> 
+    </div>
+
+    <div class="row m-0 p-0">
+      <div class="col-12">
+        <label asp-for="Name" class="form-label"></label>
+        <input asp-for="Name" class="form-control" placeholder="Enter name"/>
+        <span asp-validation-for="Name" class="text-danger"></span>
+      </div>
+      <div class="col-12 mt-4">
+        <label asp-for="DisplayOrder" class="form-label"></label>
+        <input asp-for="DisplayOrder" class="form-control" placeholder="Enter display order"/>
+        <span asp-validation-for="DisplayOrder" class="text-danger"></span>
+      </div>
+    </div>
+
+    <div class="row mt-4 justify-content-between m-0 p-0">
+      @* because bootstrap is mobile-first layout, it means, it consumes 12
+      cols, then if size >= 768px it the column will be 3, and if size >=992px the column will be 2 *@
+      <div class="col-12 mb-2 col-md-3 col-lg-2">
+        <a asp-controller="Category" asp-action="Index" class="btn btn-outline-primary w-100">
+          <i class="bi bi-arrow-return-left me-1"></i>
+          Back
+        </a>
+      </div>
+      <div class="col-lg-2 col-12 col-md-3">
+        <button type="submit" class="btn btn-primary w-100">
+          Submit
+          <i class="bi bi-send ms-1"></i>
+        </button>
+      </div>
+    </div>
+  </fieldset>
+</form>
+
+@* this will add the partial view that has javascript for client side validation *@
+@* when have this, the validation will be done in client side, and for custom validation, it will be on server side *@
+@section Scripts {
+  @{
+    <partial name="_ValidationScriptsPartial" />
+  }
+}

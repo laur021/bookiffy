@@ -1,0 +1,10 @@
+@if(TempData["message"] != null && TempData["alertType"] != null){
+
+    var alertClass = "alert-" + @TempData["alertType"]; //variable to hold dynamic class based on tempdata
+
+        <div id="notifAlert" class="position-absolute top-0 end-0 mt-2 me-2 alert alert-dismissible @alertClass slide-out-right">
+            <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+            @TempData["message"]
+        </div>
+
+}
