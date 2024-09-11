@@ -1,5 +1,6 @@
-﻿@* @model List<Category> *@
-@model CategoryViewModel
+﻿@page
+@model bookiffyrazor.Pages.Categories.IndexModel
+
 <div class="container">
     <div class="row">
         <div class="col-12 mb-4">
@@ -34,13 +35,13 @@
                             <td>@category.Name</td>
                             <td class="text-center">@category.DisplayOrder</td>
                             <td class="text-center">
-                                <a asp-controller="/Categories/edit" asp-route-id="@category.Id" class="btn btn-info btn-fixed-width">
+                                <a asp-page="/Categories/Edit" asp-route-id="@category.Id" class="btn btn-info btn-fixed-width">
                                     Edit
                                     <i class="bi bi-pencil-square ms-1"></i>
                                 </a>
                             </td>
                             <td class="text-center">
-                                <form method="post" asp-action="Delete" onsubmit="return confirm('Are you sure you want to delete this category?');" style="display:inline;">
+                                    <form method="post" asp-page-handler="Delete" onsubmit="return confirm('Are you sure you want to delete this category?');" style="display:inline;">
                                     <input type="hidden" name="Id" value="@category.Id" />
                                     <button type="submit" class="btn btn-danger btn-fixed-width">
                                         Delete
@@ -55,17 +56,16 @@
             </table>
         </div>
 
-        @* modal *@
         <div class="col-12">
             <div class="modal fade" id="newCategoryModal">
                 <div class="modal-dialog modal-dialog-centered" role="document">
                     <div class="modal-content rounded-2">
-                    <div class="modal-header">
-                        <h5 class="modal-title">New Category</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true"></span>
-                        </button>
-                    </div>
+                        <div class="modal-header">
+                            <h5 class="modal-title">New Category</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true"></span>
+                            </button>
+                        </div>
                         <form method="post" asp-page-handler="Create" id="newCategoryForm">
                             <div class="modal-body">
                                 <div class="row m-0 p-0">
@@ -86,16 +86,15 @@
                                 <button type="submit" class="btn btn-primary">Save</button>
                             </div>
                         </form>
+
                     </div>
                 </div>
             </div>
         </div>
+
     </div>
 </div>
-   
 
 @section Scripts {
-  @{
     <partial name="_ValidationScriptsPartial" />
-  }
 }
