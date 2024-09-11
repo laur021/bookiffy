@@ -1,5 +1,8 @@
-html {
+body {
   font-size: 14px;
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  font-style: normal;
 }
 
 @media (min-width: 768px) {
@@ -19,4 +22,56 @@ html {
 
 body {
   margin-bottom: 60px;
+}
+
+.btn-fixed-width {
+  min-width: 130px;
+  max-width: 130px;
+}
+
+.btn {
+  border-radius: 0.25rem;
+}
+.action-column {
+  width: 10%;
+}
+
+@keyframes slideRight {
+  0% {
+      transform: translateX(0);
+      opacity: 1;
+  }
+  100% {
+      transform: translateX(100%);
+      opacity: 0;
+  }
+}
+
+.slide-out-right {
+  transition: all 0.5s ease;
+}
+
+.slide-out-right.hide {
+  animation: slideRight 0.5s forwards;
+}
+
+/* Define the keyframe for sliding from bottom to center */
+@keyframes slideDown {
+  from {
+      transform: translateY(-100vh); /* Start from bottom of the screen */
+      opacity: 0;
+  }
+  to {
+      transform: translateY(0); /* Move to center */
+      opacity: 1;
+  }
+}
+
+/* Apply the animation to the modal when it is shown */
+.modal.fade .modal-dialog {
+  transition: none; /* Disable Bootstrap's default fade animation */
+  animation-name: slideDown; /* Use custom slideUp animation */
+  animation-duration: 0.27s; /* Animation duration */
+  animation-timing-function: ease-out; /* Smooth easing */
+  animation-fill-mode: both; /* Keep the final state */
 }
