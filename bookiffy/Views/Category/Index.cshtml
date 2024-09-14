@@ -34,7 +34,7 @@
                             <td>@category.Name</td>
                             <td class="text-center">@category.DisplayOrder</td>
                             <td class="text-center">
-                                <a asp-controller="/Categories/edit" asp-route-id="@category.Id" class="btn btn-info btn-fixed-width">
+                                <a asp-controller="Category" asp-action="Edit" asp-route-id="@category.Id" class="btn btn-info btn-fixed-width">
                                     Edit
                                     <i class="bi bi-pencil-square ms-1"></i>
                                 </a>
@@ -66,17 +66,21 @@
                         <span aria-hidden="true"></span>
                         </button>
                     </div>
-                        <form method="post" asp-page-handler="Create" id="newCategoryForm">
+                        <form method="post" asp-action="Create" id="newCategoryForm">
                             <div class="modal-body">
                                 <div class="row m-0 p-0">
                                     <div class="col-12">
-                                        <label asp-for="Category.Name" class="form-label"></label>
-                                        <input asp-for="Category.Name" class="form-control" placeholder="Enter name" />
+                                        <div class="form-floating">
+                                            <input asp-for="Category.Name" class="form-control shadow" placeholder="Enter name" />
+                                            <label asp-for="Category.Name" class="form-label"></label>
+                                        </div>
                                         <span asp-validation-for="Category.Name" class="text-danger"></span>
                                     </div>
                                     <div class="col-12 mt-4">
-                                        <label asp-for="Category.DisplayOrder" class="form-label"></label>
-                                        <input asp-for="Category.DisplayOrder" class="form-control" placeholder="Enter display order" />
+                                        <div class="form-floating">
+                                            <input asp-for="Category.DisplayOrder" class="form-control shadow" placeholder="Enter display order" />
+                                            <label asp-for="Category.DisplayOrder" class="form-label"></label>
+                                        </div>
                                         <span asp-validation-for="Category.DisplayOrder" class="text-danger"></span>
                                     </div>
                                 </div>

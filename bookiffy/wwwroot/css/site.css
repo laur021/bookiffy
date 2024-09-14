@@ -75,3 +75,7 @@ body {
   animation-timing-function: ease-out; /* Smooth easing */
   animation-fill-mode: both; /* Keep the final state */
 }
+
+#notifAlert {
+    box-shadow: 0 0 16.5px 1.5px #ffffff;
+}
