@@ -2,8 +2,8 @@ using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 
 namespace bookiffy.Models;
-    public class Category 
-    {
+public class Category
+{
     [Key]
     public int Id { get; set; }
 
@@ -13,7 +13,8 @@ namespace bookiffy.Models;
     public string? Name { get; set; }
 
     [DisplayName("Display Order")]
-    [Range(1,100, ErrorMessage = "Allowed value is between 1 and 100")] //Error Message is optional
+    [Range(1, 100, ErrorMessage = "Allowed value is between 1 and 100")] //Error Message is optional
     public int DisplayOrder { get; set; }
-    }
+
+}
 
