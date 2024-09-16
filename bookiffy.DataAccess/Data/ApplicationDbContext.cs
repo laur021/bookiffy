@@ -1,7 +1,7 @@
 using bookiffy.Models;
 using Microsoft.EntityFrameworkCore;
 
-namespace bookiffy.Data;
+namespace bookiffy.DataAccess.Data;
 
 public class ApplicationDbContext : DbContext {
     public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options)

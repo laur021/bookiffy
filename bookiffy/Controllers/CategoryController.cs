@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using bookiffy.Models;
-using bookiffy.Data;
+using bookiffy.DataAccess.Data;
 
 namespace mvc.Controllers;
     public class CategoryController : Controller
